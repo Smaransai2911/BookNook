@@ -1,0 +1,801 @@
+/* Global Styles */
+:root {
+    --primary-color: #6200ee;
+    --primary-dark: #3700b3;
+    --secondary-color: #03dac6;
+    --secondary-dark: #018786;
+    --background-color: #f5f5f5;
+    --surface-color: #ffffff;
+    --error-color: #b00020;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --text-tertiary: #999999;
+    --border-color: #e0e0e0;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--background-color);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+ul {
+    list-style: none;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    border: none;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-dark);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Form Elements */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border var(--transition-speed);
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.form-action {
+    margin-top: 1.5rem;
+}
+
+.form-links {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.form-links a {
+    margin: 0 0.5rem;
+}
+
+/* Authentication Pages */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    background-color: var(--background-color);
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 400px;
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+}
+
+.auth-header {
+    padding: 2rem;
+    text-align: center;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.auth-header h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+}
+
+.auth-form {
+    padding: 2rem;
+}
+
+.auth-form h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Main App Layout */
+.app-container {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    grid-template-rows: 70px 1fr;
+    grid-template-areas:
+        "header header"
+        "sidebar main";
+    height: 100vh;
+}
+
+.main-header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    background-color: var(--surface-color);
+    box-shadow: 0 2px 4px var(--shadow-color);
+    z-index: 10;
+}
+
+.logo h1 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background-color: var(--background-color);
+    border-radius: 20px;
+    padding: 0.5rem;
+    width: 40%;
+}
+
+.search-bar input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+.search-bar input:focus {
+    outline: none;
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-secondary);
+}
+
+.user-nav {
+    display: flex;
+    align-items: center;
+}
+
+.user-nav a {
+    color: var(--text-primary);
+    margin-left: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.user-dropdown a {
+    display: flex;
+    align-items: center;
+}
+
+#userAvatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    object-fit: cover;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: var(--surface-color);
+    min-width: 160px;
+    box-shadow: var(--card-shadow);
+    border-radius: 4px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: var(--text-primary);
+    padding: 0.8rem 1rem;
+    display: block;
+    text-align: left;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--background-color);
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background-color: var(--surface-color);
+    box-shadow: 2px 0 4px var(--shadow-color);
+    padding: 2rem 0;
+    overflow-y: auto;
+}
+
+.main-menu li {
+    margin-bottom: 0.5rem;
+}
+
+.main-menu a {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 2rem;
+    color: var(--text-primary);
+    transition: all var(--transition-speed);
+}
+
+.main-menu a i {
+    margin-right: 1rem;
+    width: 1.5rem;
+    text-align: center;
+}
+
+.main-menu a:hover,
+.main-menu li.active a {
+    background-color: rgba(98, 0, 238, 0.1);
+    color: var(--primary-color);
+    border-left: 4px solid var(--primary-color);
+    padding-left: calc(2rem - 4px);
+}
+
+.genres-section {
+    margin-top: 2rem;
+    padding: 0 2rem;
+}
+
+.genres-section h3 {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.genres-menu a {
+    display: block;
+    padding: 0.5rem 0;
+    color: var(--text-primary);
+    transition: color var(--transition-speed);
+}
+
+.genres-menu a:hover {
+    color: var(--primary-color);
+}
+
+.main-content {
+    grid-area: main;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+/* Home Page Sections */
+.welcome-section {
+    margin-bottom: 2rem;
+}
+
+.welcome-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+section h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.books-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.5rem;
+}
+
+.books-carousel {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+}
+
+.book-card {
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: transform var(--transition-speed);
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+}
+
+.book-cover {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.book-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.book-progress-indicator {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 5px;
+    background-color: var(--primary-color);
+}
+
+.book-info {
+    padding: 1rem;
+}
+
+.book-title {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.book-author {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.book-rating {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.book-rating .stars {
+    margin-right: 0.5rem;
+    color: #FFD700;
+}
+
+/* Book Details Page */
+.back-button {
+    margin-bottom: 2rem;
+}
+
+.back-button a {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 500;
+}
+
+.back-button i {
+    margin-right: 0.5rem;
+}
+
+.book-details-container {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.book-cover-large {
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 2/3;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+}
+
+.book-cover-large img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.book-info-large h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.book-info-large .book-author {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.book-genres {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+}
+
+.genre-tag {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    background-color: rgba(98, 0, 238, 0.1);
+    color: var(--primary-color);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.book-description {
+    margin: 1.5rem 0;
+    line-height: 1.8;
+}
+
+.book-details {
+    margin: 1.5rem 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.book-detail-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.book-detail-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.3rem;
+}
+
+.book-detail-value {
+    font-weight: 500;
+}
+
+/* Progress Tracker */
+.progress-tracker {
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    box-shadow: var(--card-shadow);
+}
+
+.progress-slider {
+    margin-bottom: 1.5rem;
+}
+
+.progress-slider input {
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: var(--background-color);
+    outline: none;
+}
+
+.progress-slider input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    cursor: pointer;
+}
+
+.progress-status {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.progress-percentage {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.progress-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Reviews Section */
+.add-review-section {
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--card-shadow);
+}
+
+.add-review-section h4 {
+    margin-bottom: 1.5rem;
+}
+
+.rating-input {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.rating-input span {
+    margin-right: 1rem;
+}
+
+.rating-input .stars {
+    display: flex;
+}
+
+.rating-input .stars i {
+    font-size: 1.5rem;
+    color: #FFD700;
+    cursor: pointer;
+    margin-right: 0.3rem;
+}
+
+.reviews-list {
+    margin-top: 2
+  .reviews-list {
+    margin-top: 2rem;
+}
+
+.review-card {
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: var(--card-shadow);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.reviewer-info {
+    display: flex;
+    align-items: center;
+}
+
+.reviewer-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 1rem;
+    object-fit: cover;
+}
+
+.reviewer-name {
+    font-weight: 500;
+}
+
+.review-date {
+    color: var(--text-tertiary);
+    font-size: 0.9rem;
+}
+
+.review-rating {
+    color: #FFD700;
+}
+
+.review-content {
+    line-height: 1.8;
+}
+
+/* Loading Indicator */
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-secondary);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .app-container {
+        grid-template-columns: 200px 1fr;
+    }
+    
+    .book-details-container {
+        grid-template-columns: 200px 1fr;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .app-container {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header"
+            "main";
+    }
+    
+    .sidebar {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 250px;
+        height: calc(100vh - 70px);
+        z-index: 5;
+    }
+    
+    .sidebar.active {
+        display: block;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .search-bar {
+        width: 60%;
+    }
+    
+    .book-details-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .book-cover-large {
+        max-width: 200px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .search-bar {
+        display: none;
+    }
+    
+    .books-container,
+    .books-carousel {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    }
+    
+    .book-cover {
+        height: 200px;
+    }
+}
+
+/* Profile Page Styles */
+.profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.profile-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 2rem;
+}
+
+.profile-info h2 {
+    margin-bottom: 0.5rem;
+}
+
+.profile-stats {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.profile-stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-stat-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.profile-stat-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.profile-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+
+.profile-tab {
+    padding: 1rem 2rem;
+    cursor: pointer;
+    font-weight: 500;
+    border-bottom: 3px solid transparent;
+}
+
+.profile-tab.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+.profile-tab-content {
+    display: none;
+}
+
+.profile-tab-content.active {
+    display: block;
+}
