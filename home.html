@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookBuddy - Home</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="main-header">
+            <div class="logo">
+                <h1>BookBuddy</h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" id="search" placeholder="Search for books...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <nav class="user-nav">
+                <a href="#" id="notificationsBtn"><i class="fas fa-bell"></i></a>
+                <div class="user-dropdown">
+                    <a href="#" id="userDropdownBtn">
+                        <img src="assets/images/default-avatar.png" alt="User" id="userAvatar">
+                        <span id="username">User</span>
+                    </a>
+                    <div class="dropdown-content" id="userDropdown">
+                        <a href="profile.html">My Profile</a>
+                        <a href="my-books.html">My Books</a>
+                        <a href="settings.html">Settings</a>
+                        <a href="#" id="logoutBtn">Logout</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        
+        <nav class="sidebar">
+            <ul class="main-menu">
+                <li class="active"><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="explore.html"><i class="fas fa-compass"></i> Explore</a></li>
+                <li><a href="my-books.html"><i class="fas fa-book"></i> My Books</a></li>
+                <li><a href="recommendations.html"><i class="fas fa-star"></i> Recommendations</a></li>
+            </ul>
+            <div class="genres-section">
+                <h3>Genres</h3>
+                <ul class="genres-menu" id="genresList">
+                    <!-- Genres will be loaded dynamically -->
+                </ul>
+            </div>
+        </nav>
+        
+        <main class="main-content">
+            <section class="welcome-section">
+                <h2>Welcome back, <span id="welcomeUsername">User</span>!</h2>
+                <p>Continue your reading journey from where you left off.</p>
+            </section>
+            
+            <section class="reading-progress">
+                <h3>Continue Reading</h3>
+                <div class="books-container" id="continueReadingContainer">
+                    <!-- In-progress books will be loaded dynamically -->
+                    <div class="loading">Loading your books...</div>
+                </div>
+            </section>
+            
+            <section class="trending-books">
+                <h3>Trending Now</h3>
+                <div class="books-carousel" id="trendingBooksContainer">
+                    <!-- Trending books will be loaded dynamically -->
+                    <div class="loading">Loading trending books...</div>
+                </div>
+            </section>
+            
+            <section class="new-books">
+                <h3>New Arrivals</h3>
+                <div class="books-carousel" id="newBooksContainer">
+                    <!-- New books will be loaded dynamically -->
+                    <div class="loading">Loading new books...</div>
+                </div>
+            </section>
+            
+            <section class="recommended-books">
+                <h3>Recommended For You</h3>
+                <div class="books-container" id="recommendedBooksContainer">
+                    <!-- Recommended books will be loaded dynamically -->
+                    <div class="loading">Loading recommendations...</div>
+                </div>
+            </section>
+        </main>
+    </div>
+    
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
